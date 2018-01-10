@@ -17,7 +17,7 @@ class TrustedSsoAuthenticationListener extends AbstractAuthenticationListener
 
     protected function attemptAuthentication(Request $request)
     {
-        $manager = $this->factory->getManager($this->options['manager'], $request->getUriForPath($this->options['check_path']));
+        $manager = $this->factory->getManager($this->options['manager'], str_ireplace('http://', 'https://', $request->getUriForPath($this->options['check_path'])));
 
         if (!$manager->getProtocol()->isValidationRequest($request)) {
             return null;
