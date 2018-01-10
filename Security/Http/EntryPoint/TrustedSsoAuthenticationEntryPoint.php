@@ -46,7 +46,7 @@ class TrustedSsoAuthenticationEntryPoint implements AuthenticationEntryPointInte
     public function start(Request $request, AuthenticationException $authException = null)
     {
         $action  = $this->config['login_action'];
-        $manager = $this->factory->getManager($this->config['manager'], $request->getUriForPath($this->config['check_path']));
+        $manager = $this->factory->getManager($this->config['manager'], str_ireplace('http://', 'https://', $request->getUriForPath($this->config['check_path'])));
 
         if ($action) {
             $subRequest = $request->duplicate(null, null, array(
