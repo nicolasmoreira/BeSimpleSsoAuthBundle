@@ -1,5 +1,5 @@
-SSO authentication for Symfony2
-===============================
+SSO authentication for Symfony2 (HTTPS Forced)
+===============================================
 
 
 This bundle helps you to bring SSO authentication to your Symfony2 project.
